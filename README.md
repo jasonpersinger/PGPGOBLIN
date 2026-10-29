@@ -51,12 +51,12 @@ chmod +x pgpgoblin-linux-x86_64
 ./pgpgoblin-linux-x86_64
 ```
 
-### Install via `uv` or `pipx` (Any Distro)
+### Install from PyPI (`uv` / `pipx` / `pip`)
 
 ```bash
-uv tool install git+https://github.com/jasonpersinger/PGPGOBLIN.git
+uv tool install pgpgoblin
 # or
-pipx install git+https://github.com/jasonpersinger/PGPGOBLIN.git
+pipx install pgpgoblin
 ```
 
 ### Universal Linux User Install (`~/.local`)
