@@ -118,16 +118,26 @@ def is_usable_key(key: dict[str, Any], require_encrypt: bool = False) -> bool:
 
 
 def resolve_app_icon() -> QIcon:
-    """Find the PGPGOBLIN custom icon from local or system paths."""
-    base_dir = Path(__file__).resolve().parent
-    for candidate in (
-        base_dir / "pgpgoblin_icon.png",
-        base_dir / "pgpgoblin.svg",
-        Path.home() / ".local/share/icons/hicolor/512x512/apps/pgpgoblin.png",
-        Path.home() / ".local/share/icons/hicolor/scalable/apps/pgpgoblin.svg",
-        Path("/usr/share/icons/hicolor/512x512/apps/pgpgoblin.png"),
-        Path("/usr/share/icons/hicolor/scalable/apps/pgpgoblin.svg"),
-    ):
+    """Find the PGPGOBLIN custom icon from frozen bundle, local, or system paths."""
+    search_dirs = [Path(__file__).resolve().parent]
+    meipass = getattr(sys, "_MEIPASS", None)
+    if meipass:
+        search_dirs.insert(0, Path(meipass))
+
+    candidates: list[Path] = []
+    for d in search_dirs:
+        candidates.append(d / "pgpgoblin_icon.png")
+        candidates.append(d / "pgpgoblin.svg")
+
+    candidates.extend(
+        [
+            Path.home() / ".local/share/icons/hicolor/512x512/apps/pgpgoblin.png",
+            Path.home() / ".local/share/icons/hicolor/scalable/apps/pgpgoblin.svg",
+            Path("/usr/share/icons/hicolor/512x512/apps/pgpgoblin.png"),
+            Path("/usr/share/icons/hicolor/scalable/apps/pgpgoblin.svg"),
+        ]
+    )
+    for candidate in candidates:
         if candidate.is_file():
             return QIcon(str(candidate))
     return QIcon.fromTheme("pgpgoblin")

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pgpgoblin"
+version = "1.1.0"
+description = "Zero-friction 8-bit inspired Linux PGP scratchpad interfacing natively with ~/.gnupg and gpg-agent"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Jason Persinger", email = "jason.persinger@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "python-gnupg>=0.5.0",
+    "PyQt6>=6.4.0",
+]
+keywords = ["pgp", "gpg", "gnupg", "encryption", "scratchpad", "linux", "qt6"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security :: Cryptography",
+]
+
+[project.urls]
+Homepage = "https://github.com/jasonpersinger/PGPGOBLIN"
+Repository = "https://github.com/jasonpersinger/PGPGOBLIN.git"
+Releases = "https://github.com/jasonpersinger/PGPGOBLIN/releases"
+
+[project.gui-scripts]
+pgpgoblin = "pgpgoblin:main"
+
+[tool.setuptools]
+py-modules = ["pgpgoblin"]

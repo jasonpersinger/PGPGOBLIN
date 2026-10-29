@@ -11,3 +11,4 @@ pkg/
 *.pkg.tar.xz
 *.tar.gz
 pgpgoblin_icon_emblem.png
+*.spec
