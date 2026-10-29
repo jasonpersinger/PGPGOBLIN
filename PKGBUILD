@@ -1,10 +1,10 @@
-# Maintainer: Jason <jason@localhost>
+# Maintainer: Jason Persinger <jason.persinger@gmail.com>
 pkgname=pgpgoblin
 pkgver=1.1.0
 pkgrel=1
 pkgdesc="Minimalist PGP notepad/scratchpad interfacing directly with native system GnuPG"
 arch=('any')
-url="https://github.com/jason/pgpgoblin"
+url="https://github.com/jasonpersinger/PGPGOBLIN"
 license=('MIT')
 depends=('gnupg' 'pinentry' 'python' 'python-gnupg' 'python-pyqt6')
 optdepends=('python-pyqt5: Qt5 backend fallback')

@@ -29,8 +29,8 @@
 
 ```bash
 sudo pacman -S --needed gnupg pinentry python python-gnupg python-pyqt6
-git clone https://github.com/YOUR_USERNAME/pgpgoblin.git
-cd pgpgoblin
+git clone https://github.com/jasonpersinger/PGPGOBLIN.git
+cd PGPGOBLIN
 makepkg -si
 ```
 
