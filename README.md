@@ -25,26 +25,50 @@
 
 ## Installation
 
-### Arch Linux (Native Package / `makepkg`)
+### One-Liner Install (Arch Linux — `pacman`)
+
+Install the prebuilt native Arch package directly from the latest GitHub Release:
 
 ```bash
-sudo pacman -S --needed gnupg pinentry python python-gnupg python-pyqt6
+sudo pacman -U https://github.com/jasonpersinger/PGPGOBLIN/releases/download/v1.1.0/pgpgoblin-1.1.0-1-any.pkg.tar.zst
+```
+
+Or build from `PKGBUILD`:
+
+```bash
 git clone https://github.com/jasonpersinger/PGPGOBLIN.git
 cd PGPGOBLIN
 makepkg -si
 ```
 
-### Universal Linux User Install (No Root Required)
+### Portable Single-File Linux Binary (Any Distro / Live USB)
+
+Download and run the standalone x86_64 binary with zero Python setup:
+
+```bash
+curl -fLO https://github.com/jasonpersinger/PGPGOBLIN/releases/download/v1.1.0/pgpgoblin-linux-x86_64
+chmod +x pgpgoblin-linux-x86_64
+./pgpgoblin-linux-x86_64
+```
+
+### Install via `uv` or `pipx` (Any Distro)
+
+```bash
+uv tool install git+https://github.com/jasonpersinger/PGPGOBLIN.git
+# or
+pipx install git+https://github.com/jasonpersinger/PGPGOBLIN.git
+```
+
+### Universal Linux User Install (`~/.local`)
 
 1. Install system dependencies:
    - **Arch:** `sudo pacman -S gnupg pinentry python python-gnupg python-pyqt6`
    - **Debian / Ubuntu / Mint:** `sudo apt install gnupg pinentry-qt python3 python3-gnupg python3-pyqt6`
    - **Fedora:** `sudo dnf install gnupg2 pinentry python3 python3-gnupg python3-pyqt6`
-2. Run the installer script:
+2. Run the one-liner installer:
    ```bash
-   ./install.sh
+   curl -fsSL https://raw.githubusercontent.com/jasonpersinger/PGPGOBLIN/main/install.sh | bash
    ```
-   *(To uninstall later, run `./install.sh --uninstall`.)*
 
 ---
 

@@ -16,12 +16,22 @@ if [[ "${1:-}" == "--uninstall" ]]; then
 fi
 
 echo "Installing PGPGOBLIN to ~/.local..."
-install -Dm755 "$SCRIPT_DIR/pgpgoblin.py" "$HOME/.local/bin/pgpgoblin"
-install -Dm644 "$SCRIPT_DIR/pgpgoblin_icon.png" "$HOME/.local/share/icons/hicolor/512x512/apps/pgpgoblin.png"
-install -Dm644 "$SCRIPT_DIR/pgpgoblin.svg" "$HOME/.local/share/icons/hicolor/scalable/apps/pgpgoblin.svg"
+if [[ -f "$SCRIPT_DIR/pgpgoblin.py" && -f "$SCRIPT_DIR/pgpgoblin_icon.png" ]]; then
+    SRC_DIR="$SCRIPT_DIR"
+else
+    TMP_DIR="$(mktemp -d)"
+    trap 'rm -rf "$TMP_DIR"' EXIT
+    echo "Downloading PGPGOBLIN from GitHub..."
+    curl -fsSL "https://github.com/jasonpersinger/PGPGOBLIN/archive/refs/heads/main.tar.gz" | tar -xz -C "$TMP_DIR"
+    SRC_DIR="$TMP_DIR/PGPGOBLIN-main"
+fi
+
+install -Dm755 "$SRC_DIR/pgpgoblin.py" "$HOME/.local/bin/pgpgoblin"
+install -Dm644 "$SRC_DIR/pgpgoblin_icon.png" "$HOME/.local/share/icons/hicolor/512x512/apps/pgpgoblin.png"
+install -Dm644 "$SRC_DIR/pgpgoblin.svg" "$HOME/.local/share/icons/hicolor/scalable/apps/pgpgoblin.svg"
 
 mkdir -p "$HOME/.local/share/applications"
-sed "s|^Exec=pgpgoblin$|Exec=$HOME/.local/bin/pgpgoblin|" "$SCRIPT_DIR/pgpgoblin.desktop" \
+sed "s|^Exec=pgpgoblin$|Exec=$HOME/.local/bin/pgpgoblin|" "$SRC_DIR/pgpgoblin.desktop" \
     > "$HOME/.local/share/applications/pgpgoblin.desktop"
 chmod 644 "$HOME/.local/share/applications/pgpgoblin.desktop"
 
