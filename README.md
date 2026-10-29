@@ -8,6 +8,16 @@
   <strong>A zero-friction, 8-bit inspired Linux PGP scratchpad for encrypting, decrypting, and signing text via native GnuPG.</strong>
 </p>
 
+<p align="center">
+  <a href="https://pypi.org/project/pgpgoblin/"><img src="https://img.shields.io/pypi/v/pgpgoblin?color=34d399&label=PyPI" alt="PyPI version" /></a>
+  <a href="https://github.com/jasonpersinger/PGPGOBLIN/releases"><img src="https://img.shields.io/github/v/release/jasonpersinger/PGPGOBLIN?color=f59e0b&label=Release" alt="GitHub release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
+</p>
+
+<p align="center">
+  <img src="screenshot.png" alt="PGPGOBLIN Screenshot" width="850" />
+</p>
+
 ---
 
 ## Features
