@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=PGPGOBLIN
+GenericName=PGP Scratchpad
+Comment=Minimalist PGP notepad for encrypting and decrypting text via GnuPG
+Exec=pgpgoblin
+Icon=pgpgoblin
+Terminal=false
+Categories=Utility;Security;TextEditor;Qt;
+Keywords=PGP;GPG;GnuPG;Encrypt;Decrypt;Scratchpad;Cryptography;
+StartupNotify=true
+StartupWMClass=pgpgoblin

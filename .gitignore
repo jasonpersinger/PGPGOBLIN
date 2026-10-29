@@ -1,0 +1,13 @@
+# Build and packaging directories
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+src/
+pkg/
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.tar.gz
+pgpgoblin_icon_emblem.png
